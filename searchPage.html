@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Result M1</title>
+    <link rel="shortcut icon" type="image/png" href="./images/logo.png"/>
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./main.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body onload="focusOnInput()">
+    <!-- using the gridbox layout for the header area -->
+    <header class="headerArea">
+        <div class="firstArea">
+            <div class="logoArea">
+                <a href="homePage.html"><img src="./images/logo.png" alt="AET"></a>
+            </div>
+            <div class="menuArea">
+                <div class="searchArea">
+                    <input type="text" placeholder="Search..." class="inputArea" id="inputArea">
+                    <img src="./icons/mic icon.png" alt="speak">
+                    <img src="./icons/search icon.png" alt="search">
+                </div>
+            </div>
+            <div class="socialArea">
+                <img src="./images/AAA.png" alt="Socials">
+            </div>
+        </div>
+        <div class="navArea">
+            <a href="#" class="navItem nav-active">All</a>
+            <a href="#" class="navItem">Web</a>
+            <a href="#" class="navItem">Images</a>
+            <a href="#" class="navItem">Social</a>
+            <a href="#" class="navItem">Documents</a>
+        </div>
+    </header>
+    <!-- using the flexbox for the rest of the page -->
+    <main class="bodyArea">
+        <section class="leftSidebarArea">
+            <div class="filterArea">
+                <h6 class="sidebarHeading">Filters</h6>
+                <i class="fa fa-sort-desc" aria-hidden="true"></i>
+                <div class="filterBy">
+                    <div id="date" class="flipper">
+                        <p>By Date</p>
+                        <i class="fas fa-sort-down" id="sortdown1"></i>
+                    </div>
+                    <div class="drpdwnContent" id="byDate">
+                        <input type="radio" value="anytime" name="date" id="anytime">
+                        <label class="selectItems" for="anytime">Any Time</label><br>
+                        <input type="radio" value="customrange" name="date" id="customrange">
+                        <label class="selectItems" for="customrange">Custom Range</label><br>
+                        <input type="date" id="datePicker" class="searchInputArea">
+                    </div>
+                    
+                </div>
+                <div class="filterBy">
+                    <div id="docType" class="flipper">
+                        <p>By Document Type</p>
+                        <i class="fas fa-sort-down" id="sortdown2"></i>
+                    </div>
+                    <div class="drpdwnContent" id="byDocType">
+                        <input type="text" id="docx" class="searchInputArea" placeholder="(docx, xls, pdf, etc)"><br>
+                        <div class="toggleBtns">
+                            <label class="switch">
+                                <input type="checkbox" id="togBtn">
+                                <div class="slider round">
+                                    <span class="on one">pdf</span>
+                                </div>
+                            </label>
+                            <label class="switch">
+                                <input type="checkbox" id="togBtn">
+                                <div class="slider round">
+                                 <span class="on">web</span>
+                                </div>
+                            </label>
+                            <label class="switch">
+                                <input type="checkbox" id="togBtn">
+                                <div class="slider round">
+                                 <span class="on">docx</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                    
+
+                    <!-- bootstrap for the toggle buttons -->
+                    
+                    <!-- <div class="toggleBtns">
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                            <label class="custom-control-label selectItems" for="customSwitch1">pdf</label>
+                        </div>
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input" id="customSwitch2">
+                            <label class="custom-control-label selectItems" for="customSwitch2">web</label>
+                        </div>
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input" id="customSwitch3">
+                            <label class="custom-control-label selectItems" for="customSwitch3">docx</label>
+                        </div>
+                    </div> -->
+                </div>
+                <div class="filterBy">
+                    <div id="location" class="flipper">
+                        <p>By Location</p>
+                        <i class="fas fa-sort-down" id="sortdown3"></i>
+                    </div>
+                    <div class="drpdwnContent" id="byLocation">
+                        <input type="text" id="locationEntry" class="searchInputArea" placeholder="Location...">
+                        <div class="checkScroll">
+                            <input type="checkbox" value="bacon" name="bacon" id="bacon">
+                            <label class="selectItems" for="bacon">Bacon Country</label><br>
+                            <input type="checkbox" value="baker" name="baker" id="baker">
+                            <label class="selectItems" for="baker">Baker Country</label><br>
+                            <input type="checkbox" value="banks" name="banks" id="banks">
+                            <label class="selectItems" for="banks">Banks Country</label><br>
+                            <input type="checkbox" value="baldwin" name="baldwin" id="baldwin">
+                            <label class="selectItems" for="baldwin">Baldwin Country</label><br>
+                            <input type="checkbox" value="barrow" name="barrow" id="barrow">
+                            <label class="selectItems" for="barrow">Barrow Country</label><br>
+                            <input type="checkbox" value="bartow" name="bartow" id="bartow">
+                            <label class="selectItems" for="bartow">Bartow Country</label><br>
+                            <input type="checkbox" value="brooks" name="brooks" id="brooks">
+                            <label class="selectItems" for="brooks">Brooks Country</label><br>
+                            <input type="checkbox" value="barkley" name="barkley" id="barkley">
+                            <label class="selectItems" for="barkley">Barkley Country</label><br>
+                            <input type="checkbox" value="brentford" name="brentford" id="brentford">
+                            <label class="selectItems" for="brentford">Brentford Country</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="filterBy">
+                    <div id="people" class="flipper">
+                        <p>By People</p>
+                        <i class="fas fa-sort-down" id="sortdown4"></i>
+                    </div>
+                    <div class="drpdwnContent" id="byPeople">
+                        <input type="text" id="peopleEntry" class="searchInputArea" placeholder="Search People...">
+                        <div class="checkScroll">
+                            <input type="checkbox" value="Brant" name="Brant" id="Brant">
+                            <label class="selectItems" for="Brant">Brant Curry</label><br>
+                            <input type="checkbox" value="Steph" name="Steph" id="Steph">
+                            <label class="selectItems" for="Steph">Steph Curry</label><br>
+                            <input type="checkbox" value="Steven" name="Steven" id="Steven">
+                            <label class="selectItems" for="Steven">Steven Curry</label><br>
+                            <input type="checkbox" value="Darwin" name="Darwin" id="Darwin">
+                            <label class="selectItems" for="Darwin">Darwin Curry</label><br>
+                            <input type="checkbox" value="Rene" name="Rene" id="Rene">
+                            <label class="selectItems" for="Rene">Rene Curry</label><br>
+                            <input type="checkbox" value="Crimson" name="Crimson" id="Crimson">
+                            <label class="selectItems" for="Crimson">Crimson Curry</label><br>
+                            <input type="checkbox" value="Javier" name="Javier" id="Javier">
+                            <label class="selectItems" for="Javier">Javier Curry</label><br>
+                            <input type="checkbox" value="Mason" name="Mason" id="Mason">
+                            <label class="selectItems" for="Mason">Mason Curry</label><br>
+                            <input type="checkbox" value="Harry" name="Harry" id="Harry">
+                            <label class="selectItems" for="Harry">Harry Curry</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+        <section class="mainContentArea">
+            <div class="searchSummary">
+                <p class="searchSummaryNum">About 3000 Results Found</p>
+                <p class="searchRecom">Recommended For You...</p>
+                <div class="sQ">
+                    <span class="searchQuery">Grant</span>
+                    <span class="searchQuery">Health Grant</span>
+                    <span class="searchQuery">Affordable Care Act</span>
+                    <span class="searchQuery searchQueryNum">+5</span>
+                </div>
+                <div class="searchCards">
+                    <div class="searchPreview">
+                        <div class="cardHeading">
+                            <h3>Grants | Official web site of the U.S. Health Resources</h3>
+                            <span class="cardBadge">Link</span>
+                        </div>
+                        <p class="cardDetails">Find a Health Center; Query Data; View Fact Sheets; Training & TA Hub. Behavioral Health; Care Teams; Child and Adolescent Health; Chronic and ... </p>
+                        <a class="cardURL" href="#">www.hrsa.gov/grants/index.html</a>
+                    </div>
+                    <div class="searchPreview">
+                        <div class="cardHeading">
+                            <h3>Grants & Funding | NIH</h3>
+                            <span class="cardBadge">PDF</span>
+                        </div>
+                        <p class="cardDetails">Find a Health Center; Query Data; View Fact Sheets; Training & TA Hub. Behavioral Health; Care Teams; Child and Adolescent Health; Chronic and ... </p>
+                        <a class="cardURL" href="#"></a>
+                    </div>
+                    <div class="searchPreview">
+                        <div class="cardHeading">
+                            <h3>Public health grants to local authorities: 2020 to 2021 </h3>
+                            <span class="cardBadge">Link</span>
+                        </div>
+                        <p class="cardDetails">The public health allocations and monetary conditions for local authorities to improve health in local populations.</p>
+                        <a class="cardURL" href="#">http://www.gov.uk</a>
+                    </div>
+                    <div class="searchPreview">
+                        <div class="cardHeading">
+                            <h3>CDC - Community Health Funding - NCCDPHP: Comm...</h3>
+                            <span class="cardBadge">Link</span>
+                        </div>
+                        <p class="cardDetails">Community Health Funding. Recommend on Facebook Tweet Share Compartir. This website is archived for historical purposes and is no longer being ... </p>
+                        <a class="cardURL" href="#">www.cdc.gov/nccdphp/dch/community-health-funding/index.html</a>
+                    </div>
+                    <div class="searchPreview">
+                        <div class="cardHeading">
+                            <h3>CDC - Community Health Funding - NCCDPHP: Comm...</h3>
+                            <span class="cardBadge">Link</span>
+                        </div>
+                        <p class="cardDetails">Community Health Funding. Recommend on Facebook Tweet Share Compartir. This website is archived for historical purposes and is no longer being ... </p>
+                        <a class="cardURL" href="#">www.cdc.gov/nccdphp/dch/community-health-funding/index.html</a>
+                    </div>
+                    <div class="searchPreview">
+                        <div class="cardHeading">
+                            <h3>Grants & Funding | NIH</h3>
+                            <span class="cardBadge">PDF</span>
+                        </div>
+                        <p class="cardDetails">Find a Health Center; Query Data; View Fact Sheets; Training & TA Hub. Behavioral Health; Care Teams; Child and Adolescent Health; Chronic and ... </p>
+                        <a class="cardURL" href="#"></a>
+                    </div>
+                </div>
+                <div class="summaryPagination">
+                    <span class="sumPag sumPagActive">1</span>
+                    <span class="sumPag">2</span>
+                    <span class="sumPag">3</span>
+                    <span class="sumPag">4</span>
+                    <span class="sumPag">5</span>
+                    <span class="sumPag sumPagNo">...</span>
+                    <span class="sumPag">20</span>
+                </div>  
+            </div>    
+        </section>
+        <section class="rightSidebarArea">
+            <div class="gettingStartedSection">
+                <h6 class="sidebarHeading">Popular Topics</h6>
+                <div class="gettingStarted">
+                    <img src="./icons/Getting Started.png" alt="gt1">
+                    <h5 class="gtText">How it Works</h5>
+                </div>
+                <div class="gettingStarted">
+                    <img src="./icons/Getting Started-1.png" alt="gt1">
+                    <h5 class="gtText">Trending Searches</h5>
+                </div>
+                <div class="gettingStarted">
+                    <img src="./icons/Getting Started-2.png" alt="gt1">
+                    <h5 class="gtText">Contribute</h5>
+                </div>
+            </div>
+            <div class="greenArea">
+                <p>Are you satisfied with search results?</p>
+                <div class="greenBtns">
+                    <button class="greenBtn1">No</button>
+                    <button class="greenBtn2">Yes</button>
+                </div>
+            </div>
+            <div class="blueArea">
+                <p>Do you Want to search your enterprise data?</p>
+                <span>Contact us today to know about how you can search your enterprise data like database, pdf, documents and web links.</span>
+                <button>Contact Us</button>
+            </div>
+        </section>
+    </main>
+    <script src="./scripts.js"></script>
+       
+</body>
+</html>
